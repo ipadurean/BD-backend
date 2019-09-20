@@ -1,0 +1,2 @@
+class FlatRatesController < ApplicationController
+end

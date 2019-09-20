@@ -1,0 +1,523 @@
+  [1m[35m (376.0ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (415.7ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (47.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (44.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5073945470573576205)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190919202917)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (44.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password" character varying, "phone_number" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190919202917_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190919202917"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateDrivers (20190919202931)
+  [1m[35m (40.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "drivers" ("id" bigserial primary key, "name" character varying, "username" character varying, "password" character varying, "phone_number" character varying, "photo" character varying, "description" text, "car" character varying, "car_photo" character varying, "rating" integer, "off_duty" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190919202931_create_drivers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190919202931"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTrips (20190919202943)
+  [1m[35m (40.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "driver_id" integer, "user_id" integer, "time_booked" character varying, "total" integer, "review" text, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190919202943_create_trips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190919202943"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateFlatRates (20190919202958)
+  [1m[35m (40.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "flat_rates" ("id" bigserial primary key, "route" character varying, "duration" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190919202958_create_flat_rates.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190919202958"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-09-19 20:31:21.838865"], ["updated_at", "2019-09-19 20:31:21.838865"]]
+  ↳ bin/rails:9
+  [1m[35m (39.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mFlatRate Create (31.5ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Downtown"], ["duration", 1], ["created_at", "2019-09-20 15:20:00.464665"], ["updated_at", "2019-09-20 15:20:00.464665"]]
+  [1m[35m (42.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mFlatRate Load (0.3ms)[0m  [1m[34mSELECT  "flat_rates".* FROM "flat_rates" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (43.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mFlatRate Create (0.5ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Downtown"], ["duration", 1], ["created_at", "2019-09-20 15:29:00.941812"], ["updated_at", "2019-09-20 15:29:00.941812"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (39.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - South Loop"], ["duration", 1], ["created_at", "2019-09-20 15:29:00.983748"], ["updated_at", "2019-09-20 15:29:00.983748"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago North"], ["duration", 1], ["created_at", "2019-09-20 15:29:00.988029"], ["updated_at", "2019-09-20 15:29:00.988029"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago West"], ["duration", 0], ["created_at", "2019-09-20 15:29:00.990175"], ["updated_at", "2019-09-20 15:29:00.990175"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Evanston"], ["duration", 1], ["created_at", "2019-09-20 15:29:00.992281"], ["updated_at", "2019-09-20 15:29:00.992281"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Skokie"], ["duration", 0], ["created_at", "2019-09-20 15:29:00.994068"], ["updated_at", "2019-09-20 15:29:00.994068"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago NW"], ["duration", 0], ["created_at", "2019-09-20 15:29:00.995816"], ["updated_at", "2019-09-20 15:29:00.995816"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Wilmette"], ["duration", 1], ["created_at", "2019-09-20 15:29:00.997642"], ["updated_at", "2019-09-20 15:29:00.997642"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Winetka"], ["duration", 1], ["created_at", "2019-09-20 15:29:00.999795"], ["updated_at", "2019-09-20 15:29:00.999795"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Northbrook"], ["duration", 1], ["created_at", "2019-09-20 15:29:01.001538"], ["updated_at", "2019-09-20 15:29:01.001538"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Deerfield"], ["duration", 1], ["created_at", "2019-09-20 15:29:01.003044"], ["updated_at", "2019-09-20 15:29:01.003044"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Barrington"], ["duration", 1], ["created_at", "2019-09-20 15:29:01.004558"], ["updated_at", "2019-09-20 15:29:01.004558"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Naperville"], ["duration", 1], ["created_at", "2019-09-20 15:29:01.006073"], ["updated_at", "2019-09-20 15:29:01.006073"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Oak Park"], ["duration", 1], ["created_at", "2019-09-20 15:29:01.007605"], ["updated_at", "2019-09-20 15:29:01.007605"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[36mFlatRate Load (0.3ms)[0m  [1m[34mSELECT  "flat_rates".* FROM "flat_rates" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mFlatRate Create (0.4ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Downtown"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.429870"], ["updated_at", "2019-09-20 16:48:05.429870"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - South Loop"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.473092"], ["updated_at", "2019-09-20 16:48:05.473092"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago North"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.477557"], ["updated_at", "2019-09-20 16:48:05.477557"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago West"], ["duration", 0], ["created_at", "2019-09-20 16:48:05.479689"], ["updated_at", "2019-09-20 16:48:05.479689"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Evanston"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.481656"], ["updated_at", "2019-09-20 16:48:05.481656"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Skokie"], ["duration", 0], ["created_at", "2019-09-20 16:48:05.483263"], ["updated_at", "2019-09-20 16:48:05.483263"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago NW"], ["duration", 0], ["created_at", "2019-09-20 16:48:05.484990"], ["updated_at", "2019-09-20 16:48:05.484990"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Wilmette"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.486954"], ["updated_at", "2019-09-20 16:48:05.486954"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Winetka"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.488742"], ["updated_at", "2019-09-20 16:48:05.488742"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Northbrook"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.490280"], ["updated_at", "2019-09-20 16:48:05.490280"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Deerfield"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.491811"], ["updated_at", "2019-09-20 16:48:05.491811"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Barrington"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.493326"], ["updated_at", "2019-09-20 16:48:05.493326"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Naperville"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.494821"], ["updated_at", "2019-09-20 16:48:05.494821"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Oak Park"], ["duration", 1], ["created_at", "2019-09-20 16:48:05.496234"], ["updated_at", "2019-09-20 16:48:05.496234"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (32.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ciprian Padurean"], ["username", "ipadurean"], ["password", "pass"], ["phone_number", "773-294-8839"], ["created_at", "2019-09-20 16:48:05.506371"], ["updated_at", "2019-09-20 16:48:05.506371"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mFlatRate Create (0.4ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Downtown"], ["duration", 1], ["created_at", "2019-09-20 17:05:06.972605"], ["updated_at", "2019-09-20 17:05:06.972605"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - South Loop"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.015830"], ["updated_at", "2019-09-20 17:05:07.015830"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago North"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.019637"], ["updated_at", "2019-09-20 17:05:07.019637"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago West"], ["duration", 0], ["created_at", "2019-09-20 17:05:07.021392"], ["updated_at", "2019-09-20 17:05:07.021392"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Evanston"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.023421"], ["updated_at", "2019-09-20 17:05:07.023421"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Skokie"], ["duration", 0], ["created_at", "2019-09-20 17:05:07.025411"], ["updated_at", "2019-09-20 17:05:07.025411"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago NW"], ["duration", 0], ["created_at", "2019-09-20 17:05:07.027228"], ["updated_at", "2019-09-20 17:05:07.027228"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Wilmette"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.029033"], ["updated_at", "2019-09-20 17:05:07.029033"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Winetka"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.031003"], ["updated_at", "2019-09-20 17:05:07.031003"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Northbrook"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.033001"], ["updated_at", "2019-09-20 17:05:07.033001"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Deerfield"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.035021"], ["updated_at", "2019-09-20 17:05:07.035021"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Barrington"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.036637"], ["updated_at", "2019-09-20 17:05:07.036637"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Naperville"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.038177"], ["updated_at", "2019-09-20 17:05:07.038177"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Oak Park"], ["duration", 1], ["created_at", "2019-09-20 17:05:07.039684"], ["updated_at", "2019-09-20 17:05:07.039684"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ciprian Padurean"], ["username", "ipadurean"], ["password", "pass"], ["phone_number", "773-294-8839"], ["created_at", "2019-09-20 17:05:07.049242"], ["updated_at", "2019-09-20 17:05:07.049242"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mDriver Create (28.2ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "username", "password", "phone_number", "photo", "description", "car", "car_photo", "rating", "off_duty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["name", "John Smith"], ["username", "jsmith"], ["password", "pass"], ["phone_number", "773-320-3232"], ["photo", "/Users/ipadurean79/Desktop/Flatiron/Projects/BookADriver/driver.png"], ["description", "text"], ["car", "Mercedes-Maybach "], ["car_photo", "/Users/ipadurean79/Desktop/Flatiron/Projects/BookADriver/car.jpg"], ["rating", 5], ["off_duty", "0"], ["created_at", "2019-09-20 17:05:07.063640"], ["updated_at", "2019-09-20 17:05:07.063640"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDriver Destroy (0.4ms)[0m  [1m[31mDELETE FROM "drivers" WHERE "drivers"."id" = $1[0m  [["id", 1]]
+  [1m[35m (39.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (198.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (192.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "backend_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (465.2ms)[0m  [1m[35mCREATE DATABASE "backend_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (365.0ms)[0m  [1m[35mCREATE DATABASE "backend_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5073945470573576205)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20190919202917)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (46.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "username" character varying, "password" character varying, "phone_number" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190919202917_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190919202917"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateDrivers (20190919202931)
+  [1m[35m (40.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "drivers" ("id" bigserial primary key, "name" character varying, "username" character varying, "password" character varying, "phone_number" character varying, "photo" character varying, "description" text, "rate" integer, "car" character varying, "car_photo" character varying, "rating" integer, "off_duty" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190919202931_create_drivers.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190919202931"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTrips (20190919202943)
+  [1m[35m (39.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "driver_id" integer, "user_id" integer, "time_booked" character varying, "total" integer, "review" text, "rating" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190919202943_create_trips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190919202943"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateFlatRates (20190919202958)
+  [1m[35m (39.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "flat_rates" ("id" bigserial primary key, "route" character varying, "duration" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190919202958_create_flat_rates.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190919202958"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-09-20 17:10:21.196201"], ["updated_at", "2019-09-20 17:10:21.196201"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:8
+  [1m[36mFlatRate Create (0.6ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Downtown"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.596722"], ["updated_at", "2019-09-20 17:11:19.596722"]]
+  ↳ db/seeds.rb:8
+  [1m[35m (40.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:8
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - South Loop"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.639445"], ["updated_at", "2019-09-20 17:11:19.639445"]]
+  ↳ db/seeds.rb:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:10
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago North"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.641330"], ["updated_at", "2019-09-20 17:11:19.641330"]]
+  ↳ db/seeds.rb:10
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago West"], ["duration", 0], ["created_at", "2019-09-20 17:11:19.643417"], ["updated_at", "2019-09-20 17:11:19.643417"]]
+  ↳ db/seeds.rb:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Evanston"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.645491"], ["updated_at", "2019-09-20 17:11:19.645491"]]
+  ↳ db/seeds.rb:12
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mFlatRate Create (0.3ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Skokie"], ["duration", 0], ["created_at", "2019-09-20 17:11:19.647544"], ["updated_at", "2019-09-20 17:11:19.647544"]]
+  ↳ db/seeds.rb:13
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:14
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Chicago NW"], ["duration", 0], ["created_at", "2019-09-20 17:11:19.649379"], ["updated_at", "2019-09-20 17:11:19.649379"]]
+  ↳ db/seeds.rb:14
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:15
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Wilmette"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.650962"], ["updated_at", "2019-09-20 17:11:19.650962"]]
+  ↳ db/seeds.rb:15
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Winetka"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.652507"], ["updated_at", "2019-09-20 17:11:19.652507"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:17
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Northbrook"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.654016"], ["updated_at", "2019-09-20 17:11:19.654016"]]
+  ↳ db/seeds.rb:17
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:18
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Deerfield"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.655526"], ["updated_at", "2019-09-20 17:11:19.655526"]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:18
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:19
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Barrington"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.657020"], ["updated_at", "2019-09-20 17:11:19.657020"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:20
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Naperville"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.658510"], ["updated_at", "2019-09-20 17:11:19.658510"]]
+  ↳ db/seeds.rb:20
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:20
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:21
+  [1m[36mFlatRate Create (0.2ms)[0m  [1m[32mINSERT INTO "flat_rates" ("route", "duration", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["route", "O'hare - Oak Park"], ["duration", 1], ["created_at", "2019-09-20 17:11:19.659997"], ["updated_at", "2019-09-20 17:11:19.659997"]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Ciprian Padurean"], ["username", "ipadurean"], ["password", "pass"], ["phone_number", "773-294-8839"], ["created_at", "2019-09-20 17:11:19.669637"], ["updated_at", "2019-09-20 17:11:19.669637"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:23
+  [1m[36mDriver Create (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "username", "password", "phone_number", "photo", "description", "rate", "car", "car_photo", "rating", "off_duty", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["name", "John Smith"], ["username", "jsmith"], ["password", "pass"], ["phone_number", "773-320-3232"], ["photo", "/Users/ipadurean79/Desktop/Flatiron/Projects/BookADriver/driver.png"], ["description", "text"], ["rate", 100], ["car", "Mercedes-Maybach "], ["car_photo", "/Users/ipadurean79/Desktop/Flatiron/Projects/BookADriver/car.jpg"], ["rating", 5], ["off_duty", "0"], ["created_at", "2019-09-20 17:11:19.684875"], ["updated_at", "2019-09-20 17:11:19.684875"]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mDriver Load (0.5ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" LIMIT $1[0m  [["LIMIT", 11]]
