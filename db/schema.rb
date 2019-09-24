@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 2019_09_19_202958) do
     t.string "phone_number"
     t.string "photo"
     t.text "description"
-    t.integer "rate"
+    t.float "rate"
     t.string "car"
     t.string "car_photo"
-    t.integer "rating"
+    t.float "rating"
     t.string "off_duty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_202958) do
 
   create_table "flat_rates", force: :cascade do |t|
     t.string "route"
-    t.integer "duration"
+    t.float "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_202958) do
     t.integer "driver_id"
     t.integer "user_id"
     t.string "time_booked"
-    t.integer "total"
+    t.float "total"
     t.text "review"
     t.integer "rating"
     t.datetime "created_at", null: false

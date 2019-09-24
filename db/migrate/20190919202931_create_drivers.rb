@@ -7,10 +7,10 @@ class CreateDrivers < ActiveRecord::Migration[5.2]
       t.string :phone_number
       t.string :photo
       t.text :description
-      t.integer :rate
+      t.float :rate
       t.string :car
       t.string :car_photo
-      t.integer :rating
+      t.float :rating
       t.string :off_duty
 
       t.timestamps
