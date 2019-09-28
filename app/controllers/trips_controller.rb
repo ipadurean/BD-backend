@@ -5,4 +5,17 @@ class TripsController < ApplicationController
     render json: @trips
   end
 
+  def create
+    @trip = Trip.create(trip_params)
+    render json: @trip
+  end
+
+  
+
+  private
+
+      def trip_params
+        params.require(:trip).permit!
+      end
+
 end
