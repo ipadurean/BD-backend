@@ -1,38 +1,20 @@
-require 'pry'
+class ApplicationController < ActionController::API
 
-class ApplicationController < ActionController::Base
-  skip_before_action :verify_authenticity_token
-  def encode_token(user)
-    JWT.encode({user_id: user[:user_id]}, 'panda', 'HS256')
+  def not_found
+    render json: { error: 'not_found' }
   end
 
-  def current_user
-    @user ||= User.find_by(id: user_id)
-  end
-
-  def token
-    request.headers['Authorization']
-  end
-
-  def decoded_token
+  def authorize_request
+    header = request.headers['Authorization']
+    header = header.split(' ').last if header
     begin
-      # [{user_id: 1}, {algo: 'hs256'}]
-      JWT.decode(token, ENV['secret_key'], true, { :algorithm => 'HS256' })
-    rescue JWT::DecodeError
-      [{}]
+      @decoded = JsonWebToken.decode(header)
+      @current_user = User.find(@decoded[:user_id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { errors: e.message }, status: :unauthorized
+    rescue JWT::DecodeError => e
+      render json: { errors: e.message }, status: :unauthorized
     end
-  end
-
-  def user_id
-    decoded_token.first['user_id']
-  end
-
-  def logged_in?
-    !!current_user
-  end
-
-  def authorized
-    render json: { message: "Please log in" }, status: :unauthorized unless logged_in?
   end
 end
 
