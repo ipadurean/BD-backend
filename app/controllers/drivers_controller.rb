@@ -6,6 +6,11 @@ class DriversController < ApplicationController
     render json: @drivers
   end
 
+  def show
+    @driver = Driver.find(params[:id])
+    render json: @driver, include: :trips
+  end
+
   def create
     @driver = Driver.create(driver_params)
     render json: @driver

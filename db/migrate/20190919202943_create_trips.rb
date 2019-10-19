@@ -4,9 +4,11 @@ class CreateTrips < ActiveRecord::Migration[5.2]
       t.integer :driver_id
       t.integer :user_id
       t.string :time_booked
-      t.bigint :start_time
-      t.bigint :end_time
+      t.string :start_time
+      t.string :end_time
       t.float :total
+      t.text :note
+      t.string :address
       t.text :review
       t.integer :rating
 
