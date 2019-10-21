@@ -26,7 +26,7 @@ class AuthenticationController < ApplicationController
     id = decoded_token['user_id']
     user = User.find(id)
     if user
-      render json: { id: user.id, username: user.username, token: token }
+      render json: { id: user.id, username: user.username, trips: user.trips, token: token }
     else
       render json: { error: 'Not Authorized'}, status: 401
     end
