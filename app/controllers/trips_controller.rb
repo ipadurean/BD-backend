@@ -2,7 +2,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
-    render json: @trips
+    render json: @trips, status: 200
   end
 
   def create
