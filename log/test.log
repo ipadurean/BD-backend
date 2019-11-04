@@ -574,3 +574,465 @@ Completed 200 OK in 49ms (Views: 5.9ms | ActiveRecord: 2.4ms)
   [1m[36mTrip Create (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 5], ["user_id", 5], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-03 22:37:47.495117"], ["updated_at", "2019-11-03 22:37:47.495117"]]
   [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+Processing by DriversController#index as HTML
+  [1m[36mDriver Load (43.7ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 63ms (Views: 12.0ms | ActiveRecord: 45.6ms)
+  [1m[35m (43.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$WrkG5wh6kn.U/76gFt5xj.SszGTXtTTD3yMdHcIjBjY913iBvvo/."], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:11:40.900369"], ["updated_at", "2019-11-04 20:11:40.900369"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.3ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:11:40.941320"], ["updated_at", "2019-11-04 20:11:40.941320"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.05ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$9jrx4pN8cXQAus090GWVzOJnAWfrH7SzMmFkLWKdsGnPevTz6H/4i"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:11:40.950309"], ["updated_at", "2019-11-04 20:11:40.950309"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:11:40.951588"], ["updated_at", "2019-11-04 20:11:40.951588"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by TripsController#create as HTML
+  Parameters: {"trip"=>{"address"=>"515 N State St, Chicago, IL", "driver_id"=>"7", "end_time"=>"2019-10-19T18:42:21.345Z", "start_time"=>"2019-10-19T17:42:21.345Z", "time_booked"=>"1", "total"=>"100.0", "user_id"=>"7"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 7], ["user_id", 7], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:11:40.986968"], ["updated_at", "2019-11-04 20:11:40.986968"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Trip (0.3ms)
+Completed 200 OK in 34ms (Views: 6.1ms | ActiveRecord: 2.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"John Doe", "password"=>"[FILTERED]", "phone_number"=>"7730923232", "username"=>"JohnyD9826398462"}}
+Unpermitted parameter: :user
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 422 Unprocessable Entity in 8ms (Views: 1.4ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$XYh2QXYuLV26U13lMuPNnek5fDW/nhqn5/hB58jdDHeW.s1YHHdqe"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:11:41.023544"], ["updated_at", "2019-11-04 20:11:41.023544"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.3ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:11:41.027734"], ["updated_at", "2019-11-04 20:11:41.027734"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 8], ["user_id", 8], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:11:41.032321"], ["updated_at", "2019-11-04 20:11:41.032321"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by DriversController#index as HTML
+  [1m[36mDriver Load (0.5ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 1.6ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$.jNC70sSEPZNsyA3h.WA7OESz/K9jePoMplxs.y593FsDnFPuu19q"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:15:18.714874"], ["updated_at", "2019-11-04 20:15:18.714874"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.3ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:15:18.734379"], ["updated_at", "2019-11-04 20:15:18.734379"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.06ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$.3bGgX3sxLlAFe38AIo1feAdxzyEgx6ah2vxxs0ce8miza0LG5Kpq"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:15:18.770375"], ["updated_at", "2019-11-04 20:15:18.770375"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:15:18.772240"], ["updated_at", "2019-11-04 20:15:18.772240"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by TripsController#create as HTML
+  Parameters: {"trip"=>{"address"=>"515 N State St, Chicago, IL", "driver_id"=>"10", "end_time"=>"2019-10-19T18:42:21.345Z", "start_time"=>"2019-10-19T17:42:21.345Z", "time_booked"=>"1", "total"=>"100.0", "user_id"=>"10"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 10], ["user_id", 10], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:15:18.793292"], ["updated_at", "2019-11-04 20:15:18.793292"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Trip (0.32ms)
+Completed 200 OK in 23ms (Views: 5.8ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"John Doe", "password"=>"[FILTERED]", "phone_number"=>"7730923232", "username"=>"JohnyD9826398462"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "JohnyD9826398462"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "JohnyD9826398462"], ["password_digest", "$2a$04$r9zFGatzinDa6V5bgvBymeY9DM92eTrW98HPCyW.2CiOqfim3BJHW"], ["phone_number", "7730923232"], ["created_at", "2019-11-04 20:15:18.806805"], ["updated_at", "2019-11-04 20:15:18.806805"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.2ms)
+Completed 201 Created in 5ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$IjDrRMrVnLNntOT8JfqHWuDILSZ2zszQLBuQ42xTypAsAIIn7GPAu"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:15:18.813338"], ["updated_at", "2019-11-04 20:15:18.813338"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:15:18.814688"], ["updated_at", "2019-11-04 20:15:18.814688"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 11], ["user_id", 12], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:15:18.818679"], ["updated_at", "2019-11-04 20:15:18.818679"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by DriversController#index as HTML
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$fJqso5qf7da8/ShBL5yRbeCVX1ScWoE223c/S1BWJzs2s5egu3UDe"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:18:16.585672"], ["updated_at", "2019-11-04 20:18:16.585672"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.3ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:18:16.597316"], ["updated_at", "2019-11-04 20:18:16.597316"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.05ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$h.QuizaZvxiipEpzAGRmu.7wec5iEBbPndoHAEml3zWkR7LVy3tBG"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:18:16.605878"], ["updated_at", "2019-11-04 20:18:16.605878"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:18:16.607149"], ["updated_at", "2019-11-04 20:18:16.607149"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by TripsController#create as HTML
+  Parameters: {"trip"=>{"address"=>"515 N State St, Chicago, IL", "driver_id"=>"13", "end_time"=>"2019-10-19T18:42:21.345Z", "start_time"=>"2019-10-19T17:42:21.345Z", "time_booked"=>"1", "total"=>"100.0", "user_id"=>"14"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 13], ["user_id", 14], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:18:16.629109"], ["updated_at", "2019-11-04 20:18:16.629109"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Trip (0.39ms)
+Completed 200 OK in 25ms (Views: 6.2ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"John Doe", "password"=>"[FILTERED]", "phone_number"=>"7730923232", "username"=>"JohnyD9826398462"}}
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "JohnyD9826398462"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "JohnyD9826398462"], ["password_digest", "$2a$04$RifQEHGHYBZaJte/YIe6U.Q2CD.IiV/qsmdvJSeQbCEVZbzK0C1mq"], ["phone_number", "7730923232"], ["created_at", "2019-11-04 20:18:16.644842"], ["updated_at", "2019-11-04 20:18:16.644842"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.23ms)
+Completed 201 Created in 7ms (Views: 1.7ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$N/D8d/PdMckiNV9WInf.4u3mAE99aj8o/WdTWN7d4EXTCBbxjNMRi"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:18:16.652054"], ["updated_at", "2019-11-04 20:18:16.652054"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:18:16.653566"], ["updated_at", "2019-11-04 20:18:16.653566"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 14], ["user_id", 16], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:18:16.658051"], ["updated_at", "2019-11-04 20:18:16.658051"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by DriversController#index as HTML
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 8ms (Views: 3.9ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$MJLW46or/BY.Hj9CUzAfhez0BHkuXpJFfGuN8E/n/OWkUnbMTs6Ue"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:23:26.015477"], ["updated_at", "2019-11-04 20:23:26.015477"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.4ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:23:26.026742"], ["updated_at", "2019-11-04 20:23:26.026742"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.05ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$V34z4kagKBlhKD7gkJp8qen.BCIJXAUsGBzk95vhumy7PsoFt.cyC"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:23:26.035994"], ["updated_at", "2019-11-04 20:23:26.035994"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.6ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:23:26.037414"], ["updated_at", "2019-11-04 20:23:26.037414"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by TripsController#create as HTML
+  Parameters: {"trip"=>{"address"=>"515 N State St, Chicago, IL", "driver_id"=>"16", "end_time"=>"2019-10-19T18:42:21.345Z", "start_time"=>"2019-10-19T17:42:21.345Z", "time_booked"=>"1", "total"=>"100.0", "user_id"=>"18"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 16], ["user_id", 18], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:23:26.061037"], ["updated_at", "2019-11-04 20:23:26.061037"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Trip (0.31ms)
+Completed 200 OK in 24ms (Views: 5.9ms | ActiveRecord: 2.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"John Doe", "password"=>"[FILTERED]", "phone_number"=>"7730923232", "username"=>"JohnyD9826398462"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "JohnyD9826398462"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "JohnyD9826398462"], ["password_digest", "$2a$04$/oWZ99rkQ4..FcEt6iXm6uAZ1hUehl4kNqehbepzsQpAh0x9TXcFu"], ["phone_number", "7730923232"], ["created_at", "2019-11-04 20:23:26.074950"], ["updated_at", "2019-11-04 20:23:26.074950"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.21ms)
+Completed 201 Created in 5ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$i57PNnv1G9r2fPf5g5LgdOEQJYFggQnGmHCHHCi7ZfnvQncvXxfb6"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:23:26.081525"], ["updated_at", "2019-11-04 20:23:26.081525"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:23:26.082754"], ["updated_at", "2019-11-04 20:23:26.082754"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.2ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 17], ["user_id", 20], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:23:26.085364"], ["updated_at", "2019-11-04 20:23:26.085364"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by DriversController#index as HTML
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$5otRfDxbYCQhUd0qdnqTCOtHFZPA33Whse50CSgB2qhebz2SQruBi"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:25:29.854235"], ["updated_at", "2019-11-04 20:25:29.854235"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:25:29.865882"], ["updated_at", "2019-11-04 20:25:29.865882"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.05ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$jREdoV6PDxPr7pYpkqNh9OiveG3IW3/mpyWQH7WH87WKzRVkHLEHS"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:25:29.874875"], ["updated_at", "2019-11-04 20:25:29.874875"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.4ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:25:29.876546"], ["updated_at", "2019-11-04 20:25:29.876546"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by TripsController#create as HTML
+  Parameters: {"trip"=>{"address"=>"515 N State St, Chicago, IL", "driver_id"=>"19", "end_time"=>"2019-10-19T18:42:21.345Z", "start_time"=>"2019-10-19T17:42:21.345Z", "time_booked"=>"1", "total"=>"100.0", "user_id"=>"22"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 19], ["user_id", 22], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:25:29.899636"], ["updated_at", "2019-11-04 20:25:29.899636"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Trip (0.31ms)
+Completed 200 OK in 24ms (Views: 5.6ms | ActiveRecord: 2.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"John Doe", "password"=>"[FILTERED]", "phone_number"=>"7730923232", "username"=>"JohnyD9826398462"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "JohnyD9826398462"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "JohnyD9826398462"], ["password_digest", "$2a$04$DQd3J2o71.83jbRsUyq0O.tKzUS9NqzRolWBvOTiFgvMD7n3t9MxO"], ["phone_number", "7730923232"], ["created_at", "2019-11-04 20:25:29.913924"], ["updated_at", "2019-11-04 20:25:29.913924"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.23ms)
+Completed 201 Created in 7ms (Views: 1.7ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$Wx3BxL5Ox7meR5b/a8z19.0DPqtXwsnwAfUDucTDBKJ2P22VXBl6y"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:25:29.921641"], ["updated_at", "2019-11-04 20:25:29.921641"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.8ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:25:29.923573"], ["updated_at", "2019-11-04 20:25:29.923573"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.4ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 20], ["user_id", 24], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:25:29.928701"], ["updated_at", "2019-11-04 20:25:29.928701"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by DriversController#index as HTML
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$wk.f0yNpT5eXuzuAoxaMS.ZKcNviVialmTFkBK.tdE4nDdpnX32PC"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:27:07.314523"], ["updated_at", "2019-11-04 20:27:07.314523"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.3ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:27:07.326327"], ["updated_at", "2019-11-04 20:27:07.326327"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.05ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$XtbgIwZXq9LUV.q4//D.4uRHterOzrlT0aGr.M5gcTIQjltc0x3JC"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:27:07.335488"], ["updated_at", "2019-11-04 20:27:07.335488"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.3ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:27:07.338118"], ["updated_at", "2019-11-04 20:27:07.338118"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by TripsController#create as HTML
+  Parameters: {"trip"=>{"address"=>"515 N State St, Chicago, IL", "driver_id"=>"22", "end_time"=>"2019-10-19T18:42:21.345Z", "start_time"=>"2019-10-19T17:42:21.345Z", "time_booked"=>"1", "total"=>"100.0", "user_id"=>"26"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 22], ["user_id", 26], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:27:07.361170"], ["updated_at", "2019-11-04 20:27:07.361170"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Trip (0.32ms)
+Completed 200 OK in 24ms (Views: 5.7ms | ActiveRecord: 2.4ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"John Doe", "password"=>"[FILTERED]", "phone_number"=>"7730923232", "username"=>"JohnyD9826398462"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "JohnyD9826398462"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "JohnyD9826398462"], ["password_digest", "$2a$04$tIUEtOFW0jsaBcTy56lWh.7xT.0dbEO84hUkEo0GGM/AceyZVpqA2"], ["phone_number", "7730923232"], ["created_at", "2019-11-04 20:27:07.374952"], ["updated_at", "2019-11-04 20:27:07.374952"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.26ms)
+Completed 201 Created in 7ms (Views: 2.0ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$/7YkxILvL8GtYtWSetwL9OPU6b/UVOi/VHvc/xxO7.X2GTT7f9csG"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:27:07.383437"], ["updated_at", "2019-11-04 20:27:07.383437"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:27:07.384746"], ["updated_at", "2019-11-04 20:27:07.384746"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.2ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 23], ["user_id", 28], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:27:07.387421"], ["updated_at", "2019-11-04 20:27:07.387421"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by DriversController#index as HTML
+  [1m[36mDriver Load (0.4ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 8ms (Views: 4.2ms | ActiveRecord: 1.5ms)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$OD4qell.WECgwd5DkEoPsO/GN0vnOj2.oII/1aApr5J4o86Jy/XSC"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:28:30.581013"], ["updated_at", "2019-11-04 20:28:30.581013"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.3ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:28:30.592980"], ["updated_at", "2019-11-04 20:28:30.592980"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.05ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 1.3ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$eVCl6m1hyzoHEqur.XA9iOZUPYWXPmv3h4RCdwuKSk.MotWwg/a0m"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:28:30.601941"], ["updated_at", "2019-11-04 20:28:30.601941"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:28:30.604207"], ["updated_at", "2019-11-04 20:28:30.604207"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Processing by TripsController#create as HTML
+  Parameters: {"trip"=>{"address"=>"515 N State St, Chicago, IL", "driver_id"=>"25", "end_time"=>"2019-10-19T18:42:21.345Z", "start_time"=>"2019-10-19T17:42:21.345Z", "time_booked"=>"1", "total"=>"100.0", "user_id"=>"30"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.5ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 25], ["user_id", 30], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:28:30.628835"], ["updated_at", "2019-11-04 20:28:30.628835"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Trip (0.37ms)
+Completed 200 OK in 25ms (Views: 6.2ms | ActiveRecord: 2.8ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"John Doe", "password"=>"[FILTERED]", "phone_number"=>"7730923232", "username"=>"JohnyD9826398462"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "JohnyD9826398462"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "JohnyD9826398462"], ["password_digest", "$2a$04$EPPhfWT05m41gWD0J8y9iOfEFpmM6hbKGsRJ6vFf0LAC5Od52bO.S"], ["phone_number", "7730923232"], ["created_at", "2019-11-04 20:28:30.644690"], ["updated_at", "2019-11-04 20:28:30.644690"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with User (0.23ms)
+Completed 201 Created in 7ms (Views: 1.8ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "jdoe"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "username", "password_digest", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "John Doe"], ["username", "jdoe"], ["password_digest", "$2a$04$.oXFjNR.HTeXw8cb7NoPM.4EyyHDwbDH8Cvwma25tzEijZirPOIzK"], ["phone_number", "773-222-3333"], ["created_at", "2019-11-04 20:28:30.652178"], ["updated_at", "2019-11-04 20:28:30.652178"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDriver Create (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "driver"], ["created_at", "2019-11-04 20:28:30.653516"], ["updated_at", "2019-11-04 20:28:30.653516"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mTrip Create (0.2ms)[0m  [1m[32mINSERT INTO "trips" ("driver_id", "user_id", "time_booked", "start_time", "end_time", "total", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["driver_id", 26], ["user_id", 32], ["time_booked", "1"], ["start_time", "2019-10-19T17:42:21.345Z"], ["end_time", "2019-10-19T18:42:21.345Z"], ["total", 100.0], ["address", "515 N State St, Chicago, IL"], ["created_at", "2019-11-04 20:28:30.656048"], ["updated_at", "2019-11-04 20:28:30.656048"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
