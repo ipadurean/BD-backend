@@ -6,7 +6,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.create(trip_params)
+   @trip = Trip.create(trip_params)
     render json: @trip
   end
 
