@@ -16,6 +16,12 @@ class DriversController < ApplicationController
     render json: @driver
   end
 
+  def update
+    @driver = Driver.find(params[:id])
+    @driver.update(driver_params)
+    render json: @driver
+  end
+
   private
   def driver_params
     params.require(:driver).permit!
