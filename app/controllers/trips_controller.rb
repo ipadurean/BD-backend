@@ -14,8 +14,13 @@ class TripsController < ApplicationController
     render json: @trip
   end
 
-  def destroy
+  def update
     @trip = Trip.find(params[:id])
+    @trip.update(trip_params)
+    render json: @trip, status: 200
+  end
+
+  def destroy
     @trip.destroy
   end
 
