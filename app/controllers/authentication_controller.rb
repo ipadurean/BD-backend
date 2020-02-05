@@ -9,9 +9,8 @@ class AuthenticationController < ApplicationController
     @user = User.find_by_username(params[:username])
     if @user&.authenticate(params[:password])
       token = JsonWebToken.encode(user_id: @user.id)
-      time = Time.now + 24.hours.to_i
-      render json: { token: token, exp: time.strftime("%m-%d-%Y %H:%M"),
-                     username: @user.username, id: @user.id }, status: :ok
+      
+      render json: { token: token, username: @user.username, id: @user.id }, status: :ok
     else
       render json: { error: 'unauthorized' }, status: :unauthorized
     end
@@ -24,9 +23,10 @@ class AuthenticationController < ApplicationController
     decoded_token = JsonWebToken.decode(token)
     p ".................authorizing............................"
     id = decoded_token['user_id']
+    expire = decoded_token['exp']
     user = User.find(id)
     if user
-      render json: { id: user.id, username: user.username, trips: user.trips, token: token }
+      render json: { id: user.id, username: user.username, trips: user.trips, token: token, expire: expire }
     else
       render json: { error: 'Not Authorized'}, status: 401
     end
