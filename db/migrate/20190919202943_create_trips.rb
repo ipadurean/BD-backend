@@ -3,7 +3,7 @@ class CreateTrips < ActiveRecord::Migration[5.2]
     create_table :trips do |t|
       t.integer :driver_id
       t.integer :user_id
-      t.string :time_booked
+      t.integer :time_booked
       t.datetime :start_time
       t.datetime :end_time
       t.float :total
