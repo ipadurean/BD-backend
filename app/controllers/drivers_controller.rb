@@ -2,7 +2,8 @@ class DriversController < ApplicationController
   
 
   def index
-    @drivers = Driver.all
+    p params[:q]
+    @drivers = Driver.search(params[:q])
     render json: @drivers, status: 200
   end
 
