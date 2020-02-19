@@ -2,8 +2,7 @@ class DriversController < ApplicationController
   
 
   def index
-    p params[:q]
-    @drivers = Driver.search(params[:q])
+    @drivers = Driver.search(params[:q] || '')
     render json: @drivers, status: 200
   end
 
