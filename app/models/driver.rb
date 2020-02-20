@@ -9,4 +9,5 @@ class Driver < ApplicationRecord
       driver.car.downcase.include?(query)
     end
   end
+
 end
