@@ -3,6 +3,7 @@ class CreateTrips < ActiveRecord::Migration[5.2]
     create_table :trips do |t|
       t.integer :driver_id
       t.string :driver_photo
+      t.string :driver_name
       t.integer :user_id
       t.integer :time_booked
       t.datetime :start_time

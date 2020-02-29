@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_202958) do
   create_table "trips", force: :cascade do |t|
     t.integer "driver_id"
     t.string "driver_photo"
+    t.string "driver_name"
     t.integer "user_id"
     t.integer "time_booked"
     t.datetime "start_time"
