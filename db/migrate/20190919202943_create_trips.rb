@@ -2,6 +2,7 @@ class CreateTrips < ActiveRecord::Migration[5.2]
   def change
     create_table :trips do |t|
       t.integer :driver_id
+      t.string :driver_photo
       t.integer :user_id
       t.integer :time_booked
       t.datetime :start_time
