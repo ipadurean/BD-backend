@@ -2,9 +2,8 @@ class DriversController < ApplicationController
   
 
   def index
-    p params
     drivers = Driver.all
-    (params[:filter] != 'undefined') && drivers = Driver.search(params[:filter])
+    (params[:filter] != 'undefined') && drivers = filter_drivers(drivers, params[:filter])
     (params[:from] != 'undefined' && params[:to] != 'undefined') && drivers = available_drivers(drivers, params[:from], params[:to])
     render json: drivers, status: 200
   end
