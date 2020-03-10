@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :flat_rates
   resources :trips
-  resources :drivers
+  resources :drivers, except: [:show]
+  get '/drivers/:name', to: 'drivers#show'
   resources :users, only: [:create]
   post '/auth', to: 'authentication#login'
   get '/current_user', to: 'authentication#profile'

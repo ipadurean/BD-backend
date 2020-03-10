@@ -3,13 +3,14 @@ class DriversController < ApplicationController
 
   def index
     drivers = Driver.all
-    (params[:filter] != 'undefined') && drivers = filter_drivers(drivers, params[:filter])
-    (params[:from] != 'undefined' && params[:to] != 'undefined') && drivers = available_drivers(drivers, params[:from], params[:to])
+    inexistent = [nil, 'undefined']
+    !inexistent.include?(params[:filter]) && drivers = filter_drivers(drivers, params[:filter])
+    !inexistent.include?(params[:from]) && !inexistent.include?(params[:to]) && drivers = available_drivers(drivers, params[:from], params[:to])
     render json: drivers, status: 200
   end
 
   def show
-    @driver = Driver.find(params[:name])
+    @driver = Driver.find_by(name: params[:name])
     render json: @driver, include: :trips
   end
 
